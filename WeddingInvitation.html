@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+<title>Harshini & Naveen - Wedding Invitation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com"
+crossorigin>
+<link
+href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora
+:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cinzel:wght@500;600;70
+0&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+brand: {
+gold: '#C5A059',
+goldlight: '#E8D5A5',
+maroon: '#722F37',
+maroondark: '#4A1C24',
+light: '#FDFBF7',
+cream: '#FAF6ED',
+}
+},
+fontFamily: {
+script: ['"Great Vibes"', 'cursive'],
+serif: ['"Lora"', 'serif'],
+display: ['"Cinzel"', 'serif'],
+}
+}
+}
+}
+</script>
+<style>
+body {
+background-color: #FDFBF7;
+background-image:
+
+url('https://www.transparenttextures.com/patterns/cream-paper.png');
+
+color: #4A1C24;
+overflow-x: hidden;
+}
+
+/* --- Entrance Screen Animations --- */
+@keyframes pulse-glow {
+0% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.6); }
+70% { box-shadow: 0 0 0 15px rgba(197, 160, 89, 0); }
+100% { box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+}
+.btn-pulse {
+animation: pulse-glow 2s infinite;
+}
+.screen-transition {
+transition: opacity 0.8s ease-in-out, transform 0.8s
+
+ease-in-out;
+}
+.fade-out-up {
+opacity: 0;
+transform: translateY(-50px);
+pointer-events: none;
+}
+/* --- Main Content Animations --- */
+.slide-up-item {
+opacity: 0;
+transform: translateY(40px);
+transition: opacity 0.8s ease-out, transform 0.8s
+
+ease-out;
+}
+.slide-up-item.show {
+opacity: 1;
+transform: translateY(0);
+}
+.delay-1 { transition-delay: 200ms; }
+.delay-2 { transition-delay: 400ms; }
+.delay-3 { transition-delay: 600ms; }
+.delay-4 { transition-delay: 800ms; }
+.delay-5 { transition-delay: 1000ms; }
+.delay-6 { transition-delay: 1200ms; }
+.delay-7 { transition-delay: 1400ms; }
+/* --- Decorative Elements --- */
+.elegant-shadow {
+text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.7);
+}
+.ornate-border-box {
+position: relative;
+
+background-color: white;
+}
+.ornate-border-box::before {
+content: '';
+position: absolute;
+top: 10px; left: 10px; right: 10px; bottom: 10px;
+border: 1px solid #C5A059;
+opacity: 0.5;
+pointer-events: none;
+z-index: 1;
+}
+.divider {
+display: flex;
+align-items: center;
+text-align: center;
+margin: 2rem 0;
+}
+.divider::before, .divider::after {
+content: '';
+flex: 1;
+border-bottom: 1px solid #C5A059;
+opacity: 0.5;
+}
+.divider:not(:empty)::before { margin-right: 1em; }
+.divider:not(:empty)::after { margin-left: 1em; }
+.image-frame {
+border: 4px solid #C5A059;
+outline: 1px solid #722F37;
+outline-offset: 4px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+</style>
+</head>
+<body class="font-serif min-h-screen relative">
+<!-- 1. Entrance / Landing Screen -->
+<!-- REPLACE THE URL BELOW WITH '61703.jpg' WHEN HOSTING LOCALLY
+-->
+<div id="entrance-screen" class="screen-transition fixed inset-0
+flex flex-col items-center justify-center p-6 z-50 bg-cover bg-center"
+style="background-image:
+url('https://images.unsplash.com/photo-1495954484750-af469f2f9be5?ixli
+b=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+
+<!-- Dark gradient overlay for text readability -->
+<div class="absolute inset-0 bg-gradient-to-b from-black/20
+
+via-black/40 to-black/70 z-0"></div>
+
+<div class="relative z-10 max-w-lg w-full p-6 text-center flex
+
+flex-col items-center">
+
+<p class="text-xs tracking-[0.3em] uppercase
+
+text-brand-light font-display elegant-shadow mb-8">Together with their
+families</p>
+
+<h1 class="font-script text-6xl md:text-8xl
+
+text-brand-gold mb-2 leading-tight elegant-shadow">Harshini</h1>
+<div class="text-4xl text-brand-light font-script my-2
+
+elegant-shadow">&</div>
+
+<h1 class="font-script text-6xl md:text-8xl
+
+text-brand-gold mb-12 leading-tight elegant-shadow">Naveen</h1>
+<button onclick="openInvitation()" class="btn-pulse
+bg-brand-gold/90 text-brand-maroondark font-bold border-2
+border-brand-gold font-display tracking-widest uppercase text-sm px-10
+py-3 rounded-full hover:bg-brand-gold hover:text-white transition-all
+duration-300 outline-none backdrop-blur-sm">
+
+Open Invitation
+</button>
+</div>
+</div>
+<!-- 2. Main Invitation Details -->
+<div id="main-invite" class="hidden min-h-screen w-full flex
+flex-col items-center justify-center py-12 px-4 md:px-8">
+
+<div class="ornate-border-box max-w-3xl w-full shadow-2xl
+rounded-sm p-8 md:p-16 text-center overflow-hidden relative z-10">
+
+<!-- Corner Decorations -->
+<svg class="absolute top-4 left-4 w-12 h-12
+text-brand-gold opacity-60" fill="none" viewBox="0 0 24 24"
+stroke="currentColor">
+
+<path stroke-linecap="round" stroke-linejoin="round"
+
+stroke-width="1" d="M4 4v6h6M4 4l6 6" />
+
+</svg>
+<svg class="absolute top-4 right-4 w-12 h-12
+text-brand-gold opacity-60" fill="none" viewBox="0 0 24 24"
+stroke="currentColor">
+
+<path stroke-linecap="round" stroke-linejoin="round"
+
+stroke-width="1" d="M20 4v6h-6M20 4l-6 6" />
+
+</svg>
+<!-- Invocation (Stagger 1) -->
+<div class="slide-up-item delay-1 mb-8">
+<p class="text-sm font-semibold tracking-widest
+
+text-brand-maroon mb-2">|| Om Sri Ganeshay Namah ||</p>
+
+<p class="text-xs text-brand-gold mb-8 uppercase
+tracking-wider">|| Sri Lakshmivenkateshwara Prasannam ||</p>
+<h2 class="font-display tracking-[0.2em]
+
+text-brand-maroondark text-xl md:text-2xl font-bold mb-4 uppercase
+border-b-2 border-brand-gold/40 pb-4 inline-block">
+
+Srirama Family <br class="md:hidden"> Wedding
+
+Invitation
+
+</h2>
+<p class="text-gray-700 italic mt-6 leading-relaxed
+
+max-w-lg mx-auto text-sm md:text-base">
+
+We Cordially invite you with family and friends on
+
+the auspicious occasion of the marriage of
+
+</p>
+</div>
+<!-- Bride (Stagger 2) -->
+<div class="slide-up-item delay-2 mb-8">
+<p class="text-brand-maroon uppercase tracking-widest
+
+text-xs mb-2">Our Beloved Daughter</p>
+
+<h2 class="font-script text-5xl md:text-6xl
+text-brand-maroon mb-4">Chi. Kum. Sow. Harshini</h2>
+
+<p class="text-xs md:text-sm text-gray-600 uppercase
+
+tracking-wider max-w-md mx-auto leading-relaxed">
+
+<span class="text-brand-gold font-semibold">Grand
+D/o</span> Smt. Srirama Aadi Lakshmi & Late Sri. Srirama Rama Chandra
+Naidu<br>
+
+<span class="text-brand-gold font-semibold mt-1
+block">D/o</span> Smt. Srirama Hemavathi & Sri. Srirama Ram Mohan
+Naidu
+
+</p>
+</div>
+<!-- Connector (Stagger 3) -->
+<div class="slide-up-item delay-3 my-8 font-script
+
+text-5xl text-brand-gold">
+With
+</div>
+<!-- Groom & Photo Section (Stagger 4) -->
+<div class="slide-up-item delay-4 mb-10 bg-brand-cream/30
+
+p-6 md:p-8 rounded-xl border border-brand-gold/20">
+
+<div class="flex flex-col md:flex-row items-center
+
+justify-center gap-8">
+
+<!-- Groom Photo -->
+<!-- REPLACE THE SRC BELOW WITH '62718.jpg' WHEN
+
+HOSTING LOCALLY -->
+
+<div class="w-40 h-40 md:w-48 md:h-48 rounded-full
+
+overflow-hidden image-frame shrink-0">
+
+<img
+
+src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixli
+b=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Naveen" class="w-full
+h-full object-cover object-top hover:scale-105 transition-transform
+duration-700">
+
+</div>
+<!-- Groom Details -->
+<div class="text-center md:text-left">
+<p class="text-brand-maroon uppercase
+tracking-widest text-xs mb-2 md:text-left text-center">To</p>
+<h2 class="font-script text-5xl md:text-6xl
+
+text-brand-maroon mb-4">Chi. Naveen</h2>
+
+<p class="text-xs md:text-sm text-gray-600
+uppercase tracking-wider max-w-sm leading-relaxed mx-auto md:mx-0">
+
+<span class="text-brand-gold
+
+font-semibold">Second Son of</span><br>
+
+Late Smt. T. Bharathi & Sri T. Bhaskar
+</p>
+</div>
+</div>
+</div>
+<div class="slide-up-item delay-5 divider text-brand-gold
+
+text-2xl font-script px-8">Ceremonies</div>
+<!-- Events (Stagger 6) -->
+<div class="slide-up-item delay-6 grid grid-cols-1
+
+md:grid-cols-2 gap-6 my-8">
+<!-- Reception -->
+<div class="p-6 bg-brand-light rounded border
+border-brand-gold/30 shadow-sm relative overflow-hidden group
+hover:shadow-md transition-shadow">
+
+<div class="absolute top-0 left-0 w-full h-1
+
+bg-brand-gold"></div>
+
+<h3 class="font-display font-bold
+
+text-brand-maroon tracking-widest mb-4 text-lg">Reception</h3>
+<p class="font-bold text-brand-maroondark text-xl
+
+mb-1">DEC 15th 2026</p>
+
+<p class="text-sm tracking-widest text-gray-500
+
+mb-3">TUESDAY</p>
+
+<div class="inline-block bg-brand-cream px-4 py-1
+
+rounded-full border border-brand-gold/30 text-brand-maroon
+font-semibold">
+
+07:00 P.M.
+
+</div>
+</div>
+<!-- Sumuhurtham -->
+<div class="p-6 bg-brand-light rounded border
+border-brand-gold/30 shadow-sm relative overflow-hidden group
+hover:shadow-md transition-shadow">
+
+<div class="absolute top-0 left-0 w-full h-1
+
+bg-brand-maroon"></div>
+
+<h3 class="font-display font-bold
+
+text-brand-maroon tracking-widest mb-4 text-lg">Sumuhurtham</h3>
+<p class="font-bold text-brand-maroondark text-xl
+
+mb-1">DEC 16th 2026</p>
+
+<p class="text-sm tracking-widest text-gray-500
+
+mb-3">WEDNESDAY</p>
+
+<div class="inline-block bg-brand-cream px-4 py-1
+
+rounded-full border border-brand-gold/30 text-brand-maroon
+font-semibold text-sm">
+
+06:00 A.M. TO 07:00 A.M.
+</div>
+</div>
+</div>
+<!-- Venue (Stagger 7) -->
+<div class="slide-up-item delay-7 mt-10 border-t
+
+border-brand-gold/30 pt-10">
+
+<div class="w-12 h-12 rounded-full bg-brand-cream
+border border-brand-gold/50 flex items-center justify-center mx-auto
+mb-4">
+
+<svg class="w-6 h-6 text-brand-gold" fill="none"
+
+viewBox="0 0 24 24" stroke="currentColor">
+
+<path stroke-linecap="round"
+
+stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414
+20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+
+<path stroke-linecap="round"
+
+stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3
+0 016 0z" />
+
+</svg>
+</div>
+<h3 class="font-display font-bold text-brand-maroon
+
+tracking-widest mb-3 uppercase text-lg">Venue</h3>
+
+<p class="text-xl font-bold text-brand-maroondark
+
+mb-2">RRR CONVENTION HALL</p>
+
+<p class="text-gray-600 text-sm md:text-base
+
+leading-relaxed">
+
+Old Ramana Ramesh Theater Back Side,<br>
+ATP
+</p>
+
+</div>
+<svg class="absolute bottom-4 left-4 w-12 h-12
+
+text-brand-gold opacity-60 rotate-180" fill="none" viewBox="0 0 24 24"
+stroke="currentColor">
+
+<path stroke-linecap="round" stroke-linejoin="round"
+
+stroke-width="1" d="M20 4v6h-6M20 4l-6 6" />
+
+</svg>
+<svg class="absolute bottom-4 right-4 w-12 h-12
+
+text-brand-gold opacity-60 rotate-180" fill="none" viewBox="0 0 24 24"
+stroke="currentColor">
+
+<path stroke-linecap="round" stroke-linejoin="round"
+
+stroke-width="1" d="M4 4v6h6M4 4l6 6" />
+
+</svg>
+</div>
+</div>
+<script>
+function openInvitation() {
+const entranceScreen =
+
+document.getElementById('entrance-screen');
+
+const mainInvite = document.getElementById('main-invite');
+// 1. Fade out and slide up the entrance screen
+entranceScreen.classList.add('fade-out-up');
+// 2. Wait for entrance animation to finish, then show
+
+main content
+
+setTimeout(() => {
+// Hide landing from layout
+entranceScreen.classList.add('hidden');
+// Show main layout structure
+mainInvite.classList.remove('hidden');
+// Force a browser reflow so the transition classes
+
+take effect
+
+void mainInvite.offsetWidth;
+// 3. Trigger the staggered animations by adding the
+
+'show' class to each element
+
+const slideUpElements =
+mainInvite.querySelectorAll('.slide-up-item');
+slideUpElements.forEach(el =>
+
+el.classList.add('show'));
+
+// Ensure we start at the top of the invite
+
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}, 800); // Wait 800ms matching the transition duration of
+
+fade-out-up
+}
+</script>
+</body>
+</html>
